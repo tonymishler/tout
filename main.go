@@ -1,18 +1,18 @@
 package main
 
 import (
-    "fmt" 
+	"fmt"
 )
 
 func main() {
-    tree := RedBlackTree{}
-    tree.Insert("fizz")
-    tree.Insert("buzz")
-    tree.Insert("alpha")
+	tree := RedBlackTree{}
+	tree.Insert("fizz")
+	tree.Insert("buzz")
+	tree.Insert("alpha")
 	tree.Insert("bravo")
-    tree.Insert("charlie")
+	tree.Insert("charlie")
 
-
-    fmt.Println("Red-Black Tree created with elements")
+	fmt.Println("Red-Black Tree created with elements")
 	tree.PrintInOrder()
+	tree.PrintTree()
 }
