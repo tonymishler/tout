@@ -146,3 +146,35 @@ func (t *RedBlackTree) PrintInOrder() {
 	t.inOrderTraversal(t.Root)
 	fmt.Println()
 }
+
+func printTree(node *Node, prefix string, isTail bool) {
+	if node.Right != nil {
+		newPrefix := prefix
+		if isTail {
+			newPrefix += "        "
+		} else {
+			newPrefix += "|       "
+		}
+		printTree(node.Right, newPrefix, false)
+	}
+	nodeColor := "R"
+	if node.Color == BLACK {
+		nodeColor = "B"
+	}
+	fmt.Println(prefix + "+-" + nodeColor + "-" + fmt.Sprint(node.Value))
+	if node.Left != nil {
+		newPrefix := prefix
+		if isTail {
+			newPrefix += "|       "
+		} else {
+			newPrefix += "        "
+		}
+		printTree(node.Left, newPrefix, true)
+	}
+}
+
+func (t *RedBlackTree) PrintTree() {
+	if t.Root != nil {
+		printTree(t.Root, "", true)
+	}
+}
